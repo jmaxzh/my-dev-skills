@@ -1,0 +1,6 @@
+interface:
+  display_name: "SDLC Workflow"
+  short_description: "Use SDLC stages flexibly around the user's request"
+  default_prompt: "使用 $sdlc-workflow 按我的要求灵活完成相关 SDLC 工作。"
+policy:
+  allow_implicit_invocation: false
