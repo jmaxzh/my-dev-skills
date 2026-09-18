@@ -14,12 +14,11 @@ description: Use SDLC stages as an optional reference while following the user's
 - 修复软件时，按[意图 → 需求](references/intent-to-requirements.md)中的修复目标与变更约束，依据时间约束及必要影响范围决定重构。
 - 统一术语与表述。优先使用项目或文档中已定义的术语；同一概念只使用一个规范术语，同一术语只表示一个概念。术语存在多义、边界不清或可能与既有术语冲突时，在首次使用处明确其定义、适用范围及与相近术语的区别。项目或文档未定义该术语时，优先采用业界通用术语，并在首次使用处给出定义。
 
-遵循参考流程：意图 → 意图相关上下文搜集 → 需求 → 技术方案 → 补充验收方案 → 实施 → 验证。
+遵循参考流程：意图 → 需求 → 技术方案 → 实施。
 
 - 以用户要求为准。把流程当参考，不当门禁。
 - 按用户要求执行任意阶段。允许合并、跳过、回退、重复或端到端完成。
-- 用户仅要求意图相关上下文搜集时，作为独立任务执行；交付搜集结果后停止。
-- 生成需求前，先完成本次需求所需的意图相关上下文搜集；无需用户单独触发。
+- 用户仅要求上下文搜集时，作为独立任务执行；交付搜集结果后停止。
 - 已有搜集结果时，复用仍适用的事实、来源和不确定性；仅补查缺失、变化或冲突部分。
 - 未指定阶段时，根据目标自行选择所需工作。不要仅因阶段推断而请求确认。
 - 仅当关键歧义影响范围、结果、安全或权限，且无法合理推断时，请求澄清。
@@ -28,15 +27,17 @@ description: Use SDLC stages as an optional reference while following the user's
 
 按实际执行阶段或用户明确要求的独立能力读取并遵循相应参考：
 
-- 意图相关上下文搜集：[references/intent-context-gathering.md](references/intent-context-gathering.md)
 - 意图 → 需求：[references/intent-to-requirements.md](references/intent-to-requirements.md)
 - 技术方案：[references/requirements-to-technical-design.md](references/requirements-to-technical-design.md)
-- 补充验收方案：[references/acceptance-plan.md](references/acceptance-plan.md)
 - 实施：[references/implementation.md](references/implementation.md)
-- 验证：[references/validation.md](references/validation.md)
 
 独立可选能力（不属于主流程）：
 
+- 验收方案：[references/acceptance-plan.md](references/acceptance-plan.md)。设计验收范围、判据、执行方式和证据要求；不执行验收或判定结果。
+- 验证：[references/validation.md](references/validation.md)。依据需求、技术方案及可用验收方案确定的基线核对证据并形成结论；不自动修改代码。
+- 上下文搜集：[references/intent-context-gathering.md](references/intent-context-gathering.md)。作为独立任务，围绕用户指定目标获取、核验并整理事实、来源和不确定性。按用户要求，在意图 → 需求、需求 → 技术方案等阶段调用或重复调用；复用搜集方法与仍适用的已有结果。
 - 性能审查：[references/performance-review.md](references/performance-review.md)
+- 按用户要求在任意阶段调用或重复调用独立可选能力。
 - 仅在用户明确要求时执行独立可选能力。
 - 不因主流程阶段自动触发独立可选能力。
+- 仅对本 skill 的独立上下文搜集任务应用显式触发限制；禁止将其设为需求或技术方案的前置步骤。其他工作中，按需自主获取、查阅与核验上下文；禁止据此自动启动该独立任务。
