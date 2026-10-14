@@ -1,6 +1,6 @@
 ---
 name: sdlc-workflow
-description: Follow the software development lifecycle and maintain the project knowledge base. Use only when the user explicitly invokes this skill.
+description: Follow the software development lifecycle, initialize projects on request, and maintain the project knowledge base. Use only when the user explicitly invokes this skill.
 ---
 
 # SDLC Workflow
@@ -17,6 +17,7 @@ description: Follow the software development lifecycle and maintain the project 
 
 独立可选能力仅按用户明确要求执行；禁止因进入主流程阶段自动触发：
 
+- 项目初始化：[项目初始化](references/project-initialization.md)。先明确项目目标与范围并建立知识库，再建立最小可验证工程骨架。
 - 验收方案：[验收方案](references/acceptance-plan.md)。设计范围、判据、执行方式和证据要求；不执行验收或判定结果。
 - 知识库审查：[知识库审查](references/project-knowledge-base-review.md)。禁止因日常知识库读取或更新自动启动。
 
@@ -51,6 +52,6 @@ description: Follow the software development lifecycle and maintain the project 
 
 - 修改已有交付产物时，读取并遵循[已有产物修改规则](references/artifact-editing.md)。
 - 编写中文技术操作说明或故障排查内容时，读取并遵循[中文技术写作细则](references/technical-writing.md)。
-- 全流程按需读取用户指定的项目知识库；需要读取但位置未明确时，请求指定。
+- 全流程按需读取用户指定的项目知识库；项目初始化时按初始化规则确定知识库位置，其他场景需要读取但位置未明确时，请求指定。
 - 使用项目知识库时，读取[项目知识库规范](references/project-knowledge-base.md)，按实际活动遵循对应条款；变更受保护文档前，遵循具体修改确认要求。
 - 用户要求修改本技能时，读取并遵循[本技能维护规则](references/skill-maintenance.md)。
