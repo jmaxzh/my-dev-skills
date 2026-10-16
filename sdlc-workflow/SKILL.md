@@ -18,13 +18,7 @@ description: Follow the software development lifecycle, initialize projects on r
 独立可选能力仅按用户明确要求执行；禁止因进入主流程阶段自动触发：
 
 - 项目初始化：[项目初始化](references/project-initialization.md)。先明确项目目标与范围并建立知识库，再建立最小可验证工程骨架。
-- 验收方案：[验收方案](references/acceptance-plan.md)。设计范围、判据、执行方式和证据要求；不执行验收或判定结果。
 - 知识库审查：[知识库审查](references/project-knowledge-base-review.md)。禁止因日常知识库读取或更新自动启动。
-- 桌面端界面与交互设计原则：[桌面端原则](references/desktop-ui-interaction.md)。
-- 移动端界面与交互设计原则：[移动端原则](references/mobile-ui-interaction.md)。
-- 网页界面与交互设计原则：[网页原则](references/web-ui-interaction.md)。
-
-调用设计原则指导时，读取所选平台文档及其引用的公共原则，按使用场景选取适用内容；不因提供原则指导自动生成具体产品设计方案、实施代码或执行验收。
 
 ## 通用规则
 

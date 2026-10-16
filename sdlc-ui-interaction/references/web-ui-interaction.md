@@ -2,7 +2,7 @@
 
 ## 使用方式
 
-- 读取[公共原则](ui-interaction-common.md)，按浏览器使用场景选取以下原则。
+- 读取[公共原则](../SKILL.md#公共原则)，按浏览器使用场景选取以下原则。
 - 面向移动浏览器时，同时读取[移动端原则](mobile-ui-interaction.md)；涉及桌面窗口或高频键鼠操作时，再读取[桌面端原则](desktop-ui-interaction.md)。
 
 ## 平台原则

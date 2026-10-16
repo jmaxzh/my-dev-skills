@@ -1,12 +1,34 @@
-# 公共界面与交互设计原则
+---
+name: sdlc-ui-interaction
+description: Design, implement, modify, review, or optimize user interfaces and interactions for desktop, mobile, and web, or provide guidance on UI and interaction design principles. Use when the task concerns interface or interaction behavior; do not apply to backend-only, database-only, or other tasks without UI or interaction work.
+---
 
-## 使用方式
+# 界面与交互设计
+
+## 适用范围
+
+- 任务涉及桌面端、移动端或网页的界面与交互设计、实现、修改、审查、优化，或相关原则咨询时，自动应用本技能，无须用户显式调用。
+- 本技能独立使用，不依赖 SDLC 主流程；不应用于纯后端、数据库或其他不涉及界面与交互的任务。
+- 用户仅请求原则指导时，不自动扩展为具体产品设计方案、代码实现或验收。
+
+## 按需读取规则
+
+- 遵循下述公共原则，按目标平台和使用场景读取对应文档；不默认加载全部平台原则。
+- 桌面端：读取[桌面端原则](references/desktop-ui-interaction.md)。
+- 移动端：读取[移动端原则](references/mobile-ui-interaction.md)。
+- 网页：读取[网页原则](references/web-ui-interaction.md)。
+- 移动网页同时读取移动端和网页原则；其他平台组合按所选文档的引用条件补充读取。
+- 平台未明确时，先依据任务及项目上下文判断；通用原则咨询仅使用公共原则，具体任务仍无法确定必要平台时再向用户澄清。
+
+## 公共原则
+
+### 使用方式
 
 - 按目标平台和使用场景选取原则；未指定具体产品时，直接提供通用指导。
 - 说明影响原则适用性的条件和权衡；不将特定视觉风格作为通用要求。
 - 引用具体数值前，核验目标平台规范、计量单位和适用条件。
 
-## 设计原则
+### 设计原则
 
 - **任务与操作入口**：按用户目标和操作顺序组织界面，优先呈现当前任务所需的信息和操作；让主要入口易于识别，用按钮名称说明操作及其对象，为含义不明确的图标添加文字标签。
 - **降低认知负担**：呈现决策所需的选项和上下文，减少记忆与重复输入；允许检查和修改默认值，不为减少步骤隐藏必要信息。
