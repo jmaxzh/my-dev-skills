@@ -15,6 +15,7 @@ description: Design, write, modify, review, or optimize MySQL data models, table
 - 以 MySQL 8.4 官方语义为校验基准，不限定实际使用版本；涉及版本差异时，核验目标版本的功能支持、约束执行和弃用状态。
 - 具体设计前，明确业务含义、完整性要求、主要读写方式、数据规模与增长、并发和一致性要求；审查时结合已有设计和实际负载判断。
 - 以 InnoDB 本地事务为前提应用事务与并发规约。将事务内禁止查询、禁止使用外键约束及存储过程明确为本项目约定，不表述为 MySQL 的功能限制。
+- 本规范以同一记录不会在同一毫秒内发生多次修改为前提，不考虑同一毫秒内多次修改的情况。
 - 处理适用任务时，按任务范围遵循下列规则；规则含义或适用方式不明确时，按主题读取 [MySQL 数据表与 SQL 设计示例](references/mysql-design-examples.md) 中的对应内容，无须默认加载全部示例。
 
 ## 数据建模
@@ -129,7 +130,7 @@ description: Design, write, modify, review, or optimize MySQL data models, table
 
 - **业务条件更新**：优先使用乐观锁，以业务字段校验写入时的前置条件；可用单条条件更新完成时，不额外开启显式事务。参见[示例](references/mysql-design-examples.md#业务条件更新)。
 
-- **更新时间校验**：无合适的业务字段时，可用 `updated_at` 匹配读取到的原值；读写、序列化及参数绑定须完整保留毫秒，接受同一毫秒内多次修改可能漏检。参见[示例](references/mysql-design-examples.md#更新时间校验)。
+- **更新时间校验**：无合适的业务字段时，可用 `updated_at` 匹配读取到的原值；读写、序列化及参数绑定须完整保留毫秒。参见[示例](references/mysql-design-examples.md#更新时间校验)。
 
 - **引用完整性**：通过条件更新、唯一约束及必要的事务维护引用完整性，处理新增或变更引用与目标删除或失效的并发竞争。参见[示例](references/mysql-design-examples.md#客户引用的并发维护)。
 
