@@ -9,6 +9,10 @@ description: Follow the software development lifecycle, initialize projects on r
 
 意图 → 需求 → 技术方案 → 实施。
 
+- 启用本技能后，根据用户目标确定需要完成的阶段，按“需求 → 技术方案 → 实施”的依赖顺序，自动补齐缺失或失效的前置成果，无需用户逐阶段调用。
+- 复用上下文和现有材料中仍适用的需求、方案及决策；以内容是否足以支撑后续阶段为准，不因缺少独立文档而重复执行。
+- 前置条件满足后，连续推进至用户要求的阶段，不逐阶段请求确认，也不自动扩展至后续阶段。关键歧义或重大取舍按现有澄清规则处理，仅暂停受影响的工作。
+
 按实际执行阶段读取并遵循对应文件：
 
 - 意图 → 需求：[需求](references/intent-to-requirements.md)
@@ -54,7 +58,7 @@ description: Follow the software development lifecycle, initialize projects on r
 
 ## 按需读取规则
 
-- 设计、编写、修改或审查文档产物时，读取并遵循[指令与文档设计原则](../instruction-document-design/SKILL.md)。
-- 回答中包含操作或排障说明时，仅按需复用[操作说明](../instruction-document-design/references/document-design.md#操作说明)或[故障排查说明](../instruction-document-design/references/document-design.md#故障排查说明)章节，不启用其主技能或整套文档设计规则。
+- 设计、编写、修改或审查文档产物时，读取并遵循[指令与文档设计原则](../sdlc-instr-doc-design/SKILL.md)。
+- 回答中包含操作或排障说明时，仅按需复用[操作说明](../sdlc-instr-doc-design/references/document-design.md#操作说明)或[故障排查说明](../sdlc-instr-doc-design/references/document-design.md#故障排查说明)章节，不启用其主技能或整套文档设计规则。
 - 全流程按需读取用户指定的项目知识库；项目初始化时按初始化规则确定知识库位置，其他场景需要读取但位置未明确时，请求指定。
 - 使用项目知识库时，读取[项目知识库规范](references/project-knowledge-base.md)，按实际活动遵循对应条款；变更受保护文档前，遵循具体修改确认要求。

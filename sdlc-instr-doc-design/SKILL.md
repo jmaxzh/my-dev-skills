@@ -1,5 +1,5 @@
 ---
-name: instruction-document-design
+name: sdlc-instr-doc-design
 description: Design, write, revise, and review instructions, prompts, skills, and instructional or explanatory documents. Use for document artifacts, including knowledge-base documents, not ordinary conversational answers. Knowledge-base factual audits follow the applicable knowledge-base rules.
 ---
 

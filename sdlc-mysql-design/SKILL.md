@@ -14,7 +14,7 @@ description: Design, write, modify, review, or optimize MySQL data models, table
 
 - 以 MySQL 8.4 官方语义为校验基准，不限定实际使用版本；涉及版本差异时，核验目标版本的功能支持、约束执行和弃用状态。
 - 具体设计前，明确业务含义、完整性要求、主要读写方式、数据规模与增长、并发和一致性要求；审查时结合已有设计和实际负载判断。
-- 以 InnoDB 本地事务为前提应用事务与并发规约。将事务内禁止查询、禁止使用外键约束及存储过程明确为本项目约定，不表述为 MySQL 的功能限制。
+- 以 InnoDB 本地事务为前提应用事务与并发规约。将事务内禁止查询、禁止使用 `CHECK`、外键约束及存储过程明确为本项目约定，不表述为 MySQL 的功能限制。
 - 本规范以同一记录不会在同一毫秒内发生多次修改为前提，不考虑同一毫秒内多次修改的情况。
 - 处理适用任务时，按任务范围遵循下列规则；规则含义或适用方式不明确时，按主题读取 [MySQL 数据表与 SQL 设计示例](references/mysql-design-examples.md) 中的对应内容，无须默认加载全部示例。
 
@@ -48,7 +48,7 @@ description: Design, write, modify, review, or optimize MySQL data models, table
 
 - 不为 `FLOAT`、`DOUBLE`、`DECIMAL` 设置已弃用的 `UNSIGNED` 属性。
 
-- 是非字段采用 `is_xxx` 和 `TINYINT UNSIGNED`，以 0、1 表示；该类型不限制取值为 0、1，需要限制时另设有效约束。
+- 是非字段采用 `is_xxx` 和 `TINYINT UNSIGNED`，由应用层保证取值为 0、1。
 
 - 使用 `CHAR` 时核对尾随空格的处理语义。
 
@@ -64,7 +64,9 @@ description: Design, write, modify, review, or optimize MySQL data models, table
 
 - 为 InnoDB 表显式定义稳定、尽量简短的主键；二级索引记录包含主键列，宽主键会增加二级索引成本。
 
-- 必填字段设置 `NOT NULL`；行内范围及组合条件使用已启用的 `CHECK`。`CHECK` 的结果为 `UNKNOWN` 时也可通过，不能替代 `NOT NULL`。
+- 必填字段设置 `NOT NULL`。
+
+- 禁止使用 `CHECK` 约束；各写入入口由应用层校验取值范围、枚举值及字段组合条件，失败时拒绝写入。参见[示例](references/mysql-design-examples.md#应用层校验)。
 
 - 按业务唯一性范围设置唯一索引，不以“先查询再插入”代替唯一约束；唯一索引允许多个 `NULL`。
 
